@@ -1,0 +1,14 @@
+pip
+gunicorn 
+numpy
+pandas
+pickle4
+joblib
+flask
+flask_restful
+scikit-learn
+tensorflow
+protobuf==3.20
+Pillow
+matplotlib
+keras
