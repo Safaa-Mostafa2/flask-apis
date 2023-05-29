@@ -6,16 +6,16 @@ from werkzeug.utils import secure_filename
 
 def save_and_display_gradcam(img_path, heatmap, cam_path="cam.jpg", alpha=0.4):
     # Load the original image
-    fname=img_path.split('.')[-1]
+    # fname=img_path.split('.')[-1]
     file_name=os.path.basename(img_path)
     img = tf.keras.preprocessing.image.load_img(img_path)
     img = tf.keras.preprocessing.image.img_to_array(img)
-    img = im.open(img_path).resize((224,224)) #target_size must agree with what the trained model expects!!
+    # img = im.open(img_path).resize((224,224)) #target_size must agree with what the trained model expects!!
     
-    # Preprocessing the image
-    img = im.img_to_array(img)
-    img = np.expand_dims(img, axis=0)
-    img = img.astype('float32')/255
+    # # Preprocessing the image
+    # img = im.img_to_array(img)
+    # img = np.expand_dims(img, axis=0)
+    # img = img.astype('float32')/255
 
     # Rescale heatmap to a range 0-255
     heatmap = np.uint8(255 * heatmap)
@@ -47,7 +47,7 @@ def save_and_display_gradcam(img_path, heatmap, cam_path="cam.jpg", alpha=0.4):
     return file_name
 
     # Display Grad CAM
-#    display(Image(cam_path))
+   # display(Image(cam_path))
 
 def get_img_array(img_path, size):
     # `img` is a PIL image of size 299x299
