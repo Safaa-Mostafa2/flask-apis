@@ -21,7 +21,7 @@ app = Flask(__name__, static_url_path='')
 app.config['HEATMAP_FOLDER'] = 'heatmap'
 app.config['UPLOAD_FOLDER'] = 'uploads'
 # Model saved with Keras model.save()
-MODEL_PATH = 'model_v1.h5'
+MODEL_PATH = './model_v1.h5'
 
 
 #Load your trained model
