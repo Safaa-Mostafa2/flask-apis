@@ -69,11 +69,13 @@ def model_predict(img_path, model):
     img = img.astype('float32')/255
    
     preds = model.predict(img)[0]
+      
     prediction = sorted(
       [(class_dict[i], round(j*100, 2)) for i, j in enumerate(preds)],
       reverse=True,
       key=lambda x: x[1]
   )
+    print(prediction,img) 
     return prediction,img
 
 @app.route('/predict', methods=['GET', 'POST'])
@@ -92,7 +94,7 @@ def predict():
         file_name=os.path.basename(file_path)
         # Make prediction
         pred,img = model_predict(file_path, model)
-        
+        print(pred,img,"pred img")
         last_conv_layer_name = "block_16_depthwise"
         heatmap = make_gradcam_heatmap(img, model, last_conv_layer_name)
         fname=save_and_display_gradcam(file_path, heatmap)
